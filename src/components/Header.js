@@ -3,25 +3,51 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 class Header extends React.Component {
+  handleTotal = () => {
+    const { getExpenses } = this.props;
+    let total = 0;
+    if (getExpenses.length > 0) {
+      getExpenses.forEach((item) => {
+        const converter = item.exchangeRates[item.currency].ask;
+        total += item.value * converter;
+      });
+    }
+    return total.toFixed(2);
+  };
+
   render() {
-    const { email } = this.props;
+    const { emailUser, getExpenses } = this.props;
+    console.log(getExpenses);
     return (
-      <div>
-        <p data-testid="email-field">{email}</p>
-        <p data-testid="total-field">0</p>
-        <p data-testid="header-currency-field">BRL</p>
-      </div>
+      <header>
+        <div>
+          <div data-testid="email-field">
+            E-mail:
+            { emailUser }
+          </div>
+
+          <div>
+            Despesa total:
+            <div data-testid="total-field">
+              { this.handleTotal() }
+            </div>
+          </div>
+
+          <div data-testid="header-currency-field">BRL</div>
+        </div>
+      </header>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  email: state.user.email,
-  expenses: state.wallet.expenses,
+  emailUser: state.user.email,
+  getExpenses: state.wallet.expenses,
 });
 
-Header.propTypes = {
-  email: PropTypes.string,
-}.isRequired;
-
 export default connect(mapStateToProps)(Header);
+
+Header.propTypes = {
+  emailUser: PropTypes.string,
+  getExpenses: PropTypes.func,
+}.isRequired;
