@@ -1,0 +1,68 @@
+.boxWallet {
+  background-color: rgba(0, 0, 0, 0.89);
+  border-radius: 10px;
+  box-shadow: 0 0 20px 1px #f7f7f7;
+  color: white;
+  left: 50%;
+  padding: 10px 50px;
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+}
+
+.formWallet {
+  align-items: center;
+  display: flex;
+  height: 80px;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.text-center-wallet {
+  color: white;
+  display: block;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+.input-container-wallet {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.input-container-wallet span {
+  color: white;
+  font-size: 16px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.input-container-wallet input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #555;
+  color: white;
+  font-size: 16px;
+  padding: 8px 0 5px;
+}
+
+.input-container-wallet input:focus {
+  border: none;
+  border-bottom: 1px solid #e74c3c;
+  outline: none;
+}
+
+.btn-wallet {
+  background-color: #e74c3c;
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}

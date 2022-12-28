@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { userLogin } from '../redux/actions';
+import './Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -42,31 +43,43 @@ class Login extends React.Component {
     const { email, password, invalidInputs, isRedirect } = this.state;
     if (isRedirect) return <Redirect to="/carteira" />;
     return (
-      <section>
-        <input
-          type="text"
-          onChange={ this.handleChange }
-          name="email"
-          placeholder="Email"
-          value={ email }
-          data-testid="email-input"
-        />
-        <input
-          type="password"
-          onChange={ this.handleChange }
-          name="password"
-          placeholder="senha"
-          value={ password }
-          data-testid="password-input"
-        />
-        <button
-          type="button"
-          onClick={ this.handleLogin }
-          disabled={ invalidInputs }
-        >
-          Entrar
-        </button>
-      </section>
+      <div className="box">
+        <form>
+          <h3 className="text-center">login</h3>
+          <div className="input-container">
+            <input
+              type="mail"
+              required
+              onChange={ this.handleChange }
+              name="email"
+              value={ email }
+              data-testid="email-input"
+            />
+            <span> Digite seu email</span>
+          </div>
+          <div className="input-container">
+            <input
+              type="password"
+              required
+              onChange={ this.handleChange }
+              name="password"
+              value={ password }
+              data-testid="password-input"
+            />
+            <span> Digite sua senha</span>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn"
+              onClick={ this.handleLogin }
+              disabled={ invalidInputs }
+            >
+              Entrar
+            </button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

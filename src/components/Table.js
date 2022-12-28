@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteExpense, editItem } from '../redux/actions';
+import './Table.css';
 
 class Table extends React.Component {
   editExpense = (id) => {
@@ -13,69 +14,71 @@ class Table extends React.Component {
   render() {
     const { expenses, expenseDelete } = this.props;
     return (
-      <table>
-        <thead>
-          <tr>
-            <th>Descrição</th>
-            <th>Tag</th>
-            <th>Método de pagamento</th>
-            <th>Valor</th>
-            <th>Moeda</th>
-            <th>Câmbio utilizado</th>
-            <th>Valor convertido</th>
-            <th>Moeda de conversão</th>
-            <th>Editar/Excluir</th>
-          </tr>
-        </thead>
+      <div className="container">
+        <table>
+          <thead>
+            <tr>
+              <th>Descrição</th>
+              <th>Tag</th>
+              <th>Método de pagamento</th>
+              <th>Valor</th>
+              <th>Moeda</th>
+              <th>Câmbio utilizado</th>
+              <th>Valor convertido</th>
+              <th>Moeda de conversão</th>
+              <th>Editar/Excluir</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          {
-            expenses.map((expense) => {
-              const { id,
-                value,
-                description,
-                currency,
-                method,
-                tag,
-                exchangeRates,
-              } = expense;
-              const converter = (value * exchangeRates[currency].ask).toFixed(2);
-              const currencyName = exchangeRates[currency].name.split('/');
-              const cambio = exchangeRates[currency].ask;
-              return (
-                <tr key={ id }>
-                  <td>{ description }</td>
-                  <td>{ tag }</td>
-                  <td>{ method }</td>
-                  <td>{ Number(value).toFixed(2) }</td>
-                  <td>{ `${currencyName[0]}/Real Brasileiro` }</td>
-                  <td>{ Number(cambio).toFixed(2) }</td>
-                  <td>{ converter }</td>
-                  <td>Real</td>
-                  <td>
-                    <button
-                      type="button"
-                      data-testid="edit-btn"
-                      onClick={ () => this.editExpense(id) }
-                    >
-                      Editar
-                    </button>
-                    <button
-                      data-testid="delete-btn"
-                      type="button"
-                      name="delete-btn"
-                      id="delete-btn"
-                      onClick={ () => expenseDelete(id) }
-                    >
-                      Excluir
-                    </button>
-                  </td>
-                </tr>
-              );
-            })
-          }
-        </tbody>
-      </table>
+          <tbody>
+            {
+              expenses.map((expense) => {
+                const { id,
+                  value,
+                  description,
+                  currency,
+                  method,
+                  tag,
+                  exchangeRates,
+                } = expense;
+                const converter = (value * exchangeRates[currency].ask).toFixed(2);
+                const currencyName = exchangeRates[currency].name.split('/');
+                const cambio = exchangeRates[currency].ask;
+                return (
+                  <tr key={ id }>
+                    <td>{ description }</td>
+                    <td>{ tag }</td>
+                    <td>{ method }</td>
+                    <td>{ Number(value).toFixed(2) }</td>
+                    <td>{ `${currencyName[0]}/Real Brasileiro` }</td>
+                    <td>{ Number(cambio).toFixed(2) }</td>
+                    <td>{ converter }</td>
+                    <td>Real</td>
+                    <td>
+                      <button
+                        type="button"
+                        data-testid="edit-btn"
+                        onClick={ () => this.editExpense(id) }
+                      >
+                        Editar
+                      </button>
+                      <button
+                        data-testid="delete-btn"
+                        type="button"
+                        name="delete-btn"
+                        id="delete-btn"
+                        onClick={ () => expenseDelete(id) }
+                      >
+                        Excluir
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            }
+          </tbody>
+        </table>
+      </div>
     );
   }
 }

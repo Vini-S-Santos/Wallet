@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&subset=greek-ext') ;
+
+body {
+  background-image: url('https://img.freepik.com/fotos-premium/conceito-de-mineracao-de-bitcoins_173387-677.jpg?w=2000');
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Noto Sans, sans-serif;
+  min-height: 100vh;
+}
+
+.text-center {
+  color: white;
+  display: block;
+  font-size: 23px;
+  margin: -50px 0 80px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.box {
+  background-color: rgba(0, 0, 0, 0.89);
+  border-radius: 10px;
+  box-shadow: 0 0 20px 1px #f7f7f7;
+  left: 50%;
+  padding: 70px 100px;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.input-container {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.input-container span {
+  color: white;
+  font-size: 16px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.input-container input {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #555;
+  color: white;
+  font-size: 16px;
+  padding: 8px 0 5px;
+  width: 100%;
+}
+
+.input-container input:focus {
+  border: none;
+  border-bottom: 1px solid #e74c3c;
+  outline: none;
+}
+
+.btn {
+  background-color: #e74c3c;
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  margin-top: 50px;
+  outline: none;
+  padding: 10px 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.btn:disabled {
+  background-color: #ec978ef8;
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  margin-top: 50px;
+  outline: none;
+  padding: 10px 20px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.input-container input:focus ~ span , .input-container input:valid ~ span {
+  font-size: 12px;
+  top: -12px;
+
+}

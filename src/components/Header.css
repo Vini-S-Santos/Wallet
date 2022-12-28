@@ -1,0 +1,28 @@
+@font-face {
+  font-family: Moderne Sans;
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/moderne_sans.woff2');
+}
+
+header {
+  align-items: center;
+  color: white;
+  display: flex;
+  height: 100px;
+  justify-content: space-evenly;
+  position: fixed;
+  text-align: center;
+  transition: 0.4s;
+  width: 100%;
+}
+
+header:hover {
+  background: rgba(255, 255, 255, 0.8);
+  color: black;
+}
+
+h1 {
+  font-family: Moderne Sans, sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+}
+

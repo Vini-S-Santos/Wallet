@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import fetchCurrencies from '../redux/api/fetchCurrencies';
 import { getExpenses, deleteExpense, saveEdit } from '../redux/actions';
+import './WalletForm.css';
 
 const tagAlimentacao = 'Alimentação';
 
@@ -56,8 +57,7 @@ class FormExpenses extends React.Component {
     });
   };
 
-  saveEdit = async (event) => {
-    event.preventDefault();
+  saveEdit = async () => {
     const fetchAPI = await fetchCurrencies();
     const { wallet, saveEditDispatch, deleteItemDispatch } = this.props;
     const { value, description, currency, method, tag } = this.state;
@@ -80,9 +80,10 @@ class FormExpenses extends React.Component {
     const { currencies, editor } = this.props;
     const { value, description, currency, method, tag } = this.state;
     return (
-      <form>
-        <div>
-          <label htmlFor="value-input">
+      <div className="boxWallet">
+        <h3 className="text-center-wallet">Adicione sua dispesa</h3>
+        <form className="formWallet">
+          <div className="input-container-wallet">
             Valor:
             <input
               type="text"
@@ -92,9 +93,8 @@ class FormExpenses extends React.Component {
               name="value"
               onChange={ this.handleSave }
             />
-          </label>
-
-          <label htmlFor="description-input">
+          </div>
+          <div className="input-container-wallet">
             Descrição:
             <input
               type="text"
@@ -104,78 +104,83 @@ class FormExpenses extends React.Component {
               name="description"
               onChange={ this.handleSave }
             />
-          </label>
+          </div>
+          <div>
+            <label htmlFor="currency">
+              Moeda:
+              <select
+                data-testid="currency-input"
+                id="currency"
+                value={ currency }
+                name="currency"
+                onChange={ this.handleSave }
+              >
+                {
+                  currencies.map((coin, index) => (
+                    <option key={ index } value={ coin }>{coin}</option>
+                  ))
+                }
+              </select>
+            </label>
+          </div>
+          <div>
+            <label htmlFor="method-pay">
+              Forma de Pagamento:
+              <select
+                data-testid="method-input"
+                id="method-pay"
+                value={ method }
+                name="method"
+                onChange={ this.handleSave }
+              >
+                <option name="dinheiro">Dinheiro</option>
+                <option name="credito">Cartão de crédito</option>
+                <option name="dedito">Cartão de débito</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            <label htmlFor="tag-input">
+              Categoria:
+              <select
+                data-testid="tag-input"
+                id="tag-input"
+                value={ tag }
+                name="tag"
+                onChange={ this.handleSave }
+              >
+                <option name="alimentacao">Alimentação</option>
+                <option name="lazer">Lazer</option>
+                <option name="trabalho">Trabalho</option>
+                <option name="transporte">Transporte</option>
+                <option name="saude">Saúde</option>
+              </select>
+            </label>
+          </div>
+          <div>
+            {editor ? (
+              <button
+                className="btn-wallet"
+                type="button"
+                data-testid="btn-edit-expense"
+                onClick={ this.saveEdit }
+              >
+                Editar despesa
 
-          <label htmlFor="currency">
-            Moeda:
-            <select
-              data-testid="currency-input"
-              id="currency"
-              value={ currency }
-              name="currency"
-              onChange={ this.handleSave }
-            >
-              {
-                currencies.map((coin, index) => (
-                  <option key={ index } value={ coin }>{coin}</option>
-                ))
-              }
-            </select>
-          </label>
+              </button>
+            ) : (
+              <button
+                className="btn-wallet"
+                type="button"
+                onClick={ this.handleClick }
+              >
+                Adicionar despesa
+              </button>
+            )}
 
-          <label htmlFor="method-pay">
-            Forma de Pagamento:
-            <select
-              data-testid="method-input"
-              id="method-pay"
-              value={ method }
-              name="method"
-              onChange={ this.handleSave }
-            >
-              <option name="dinheiro">Dinheiro</option>
-              <option name="credito">Cartão de crédito</option>
-              <option name="dedito">Cartão de débito</option>
-            </select>
-          </label>
-
-          <label htmlFor="tag-input">
-            Categoria:
-            <select
-              data-testid="tag-input"
-              id="tag-input"
-              value={ tag }
-              name="tag"
-              onChange={ this.handleSave }
-            >
-              <option name="alimentacao">Alimentação</option>
-              <option name="lazer">Lazer</option>
-              <option name="trabalho">Trabalho</option>
-              <option name="transporte">Transporte</option>
-              <option name="saude">Saúde</option>
-            </select>
-          </label>
-
-          {editor ? (
-            <button
-              type="button"
-              data-testid="btn-edit-expense"
-              onClick={ this.saveEdit }
-            >
-              Editar despesa
-
-            </button>
-          ) : (
-            <button
-              className="buttonsExpense"
-              type="button"
-              onClick={ this.handleClick }
-            >
-              Adicionar despesa
-            </button>
-          )}
-
-        </div>
-      </form>
+          </div>
+        </form>
+      </div>
     );
   }
 }
