@@ -1,13 +1,24 @@
-# :construction: README customizado em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto no qual você pode customizar e reutilizar todas as vezes que for executar o trybe-publisher.
+# Habilidades
 
-Para deixá-lo com a sua cara, basta alterar o seguinte arquivo da sua máquina: ~/.student-repo-publisher/custom/_NEW_README.md
+* Crie um Redux Store em aplicativos React
 
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+* Crie reducers no Redux em React Applications
+
+* Criar ações no Redux em aplicativos React
+
+* Crie despach no Redux em React Applications
+
+* Conecte o Redux aos componentes do React
+
+* Crie ações assíncronas em um aplicativo React que faz uso do Redux.
+
+---
+
+## O que foi desenvolvido
+
+Neste projeto desenvolvi uma carteira conversora de moedas, ao utilizar esta aplicação o usuário deverá ser capaz de:
+- Adicionar, remover e editar gastos;
+- Visualize uma tabela com todos os dados de gastos;
+- Visualize o total de gastos convertidos para uma moeda de sua escolha;
+
+---
