@@ -26,6 +26,8 @@ Neste projeto desenvolvi uma carteira conversora de moedas, ao utilizar esta apl
 
 ---
 
+## Como executar:
+
 1. Instale as dependências e inicialize o projeto.
 * Install dependencies:
 * ```npm install```
