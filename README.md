@@ -1,16 +1,16 @@
 # Habilidades
 
-* Crie um Redux Store em aplicativos React
+* Criar um Redux Store em aplicativos React
 
-* Crie reducers no Redux em React Applications
+* Criareducers no Redux em React Applications
 
 * Criar ações no Redux em aplicativos React
 
-* Crie despach no Redux em React Applications
+* Criar dispach no Redux em React Applications
 
 * Conecte o Redux aos componentes do React
 
-* Crie ações assíncronas em um aplicativo React que faz uso do Redux.
+* Criar ações assíncronas em um aplicativo React que faz uso do Redux.
 
 ---
 
